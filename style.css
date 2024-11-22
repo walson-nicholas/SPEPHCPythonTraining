@@ -1,0 +1,144 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background with Gradient Fallback */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #0056b3, #33a1fd); /* Blue gradient fallback */
+    background-image: url('flyer.jpg'), linear-gradient(120deg, #0056b3, #33a1fd); /* Flyer + Gradient */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark filter */
+    z-index: -1;
+}
+
+.container {
+    text-align: center;
+    padding: 5vw;
+    color: white;
+    z-index: 1;
+    width: 90vw;
+}
+
+.logo {
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    width: 10vw;
+    max-width: 100px;
+}
+
+/* Header Section */
+header h1 {
+    font-size: 6vw;
+    margin-bottom: 2vw;
+}
+
+header p {
+    font-size: 3.5vw;
+    margin-bottom: 5vw;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 3vw;
+}
+
+.buttons .btn {
+    display: inline-block;
+    font-size: 3vw;
+    padding: 1.5vw 4vw;
+    border-radius: 2vw;
+    text-decoration: none;
+    transition: 0.3s;
+    background: white;
+    color: #0056b3;
+}
+
+.btn.member {
+    background: #ffffff;
+    color: #0056b3;
+    border: 2px solid #0056b3;
+}
+
+.btn.member:hover {
+    background: #0056b3;
+    color: white;
+}
+
+.btn.non-member {
+    background: #ffa500;
+    color: #0056b3;
+    border: 2px solid #ffa500;
+}
+
+.btn.non-member:hover {
+    background: #ff7300;
+    color: white;
+}
+
+/* Responsive Design */
+@media screen and (min-width: 768px) {
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .buttons .btn {
+        margin: 0 1vw;
+    }
+
+    header h1 {
+        font-size: 4vw;
+    }
+
+    header p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    header h1 {
+        font-size: 3vw;
+    }
+
+    header p {
+        font-size: 2vw;
+    }
+
+    .buttons .btn {
+        font-size: 2vw;
+        padding: 1vw 3vw;
+    }
+}
